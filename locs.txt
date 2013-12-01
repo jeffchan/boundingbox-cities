@@ -48,3 +48,4 @@ Berlin, Germany
 Madrid, Spain
 Milan, Italy
 Melbourne, Australia
+Minneapolis, MN
