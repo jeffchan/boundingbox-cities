@@ -49,10 +49,10 @@ for loc in cities:
     sw_pt = place['boundingBox']['southWest']
 
     results[name] = {
-        'ne_lat': ne_pt['latitude'],
-        'ne_lon': ne_pt['longitude'],
-        'sw_lat': sw_pt['latitude'],
-        'sw_lon': sw_pt['longitude']
+        'ne_lat': str(ne_pt['latitude']),
+        'ne_lon': str(ne_pt['longitude']),
+        'sw_lat': str(sw_pt['latitude']),
+        'sw_lon': str(sw_pt['longitude'])
     }
 
 ff = open('boundbox.json', 'w')
