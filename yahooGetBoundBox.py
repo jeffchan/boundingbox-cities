@@ -18,21 +18,15 @@ Updated by Jeff Chan <jefftchan@gmail.com> - http://jeffchan.net
 import json
 import urllib
 
-# read in city names
+# Load city names
 cities = []
-nfile = open('locs.txt',"r")
+nfile = open('locs.txt', 'r')
 lines = nfile.readlines()
 for line in lines:
     line = line.strip()
     cities.append(line)
-'''
-Get bounding box info given WOEIDs of cities and print to file.
 
-Using Yahoo! PlaceFinder API
-replace api_key2 with your API key from http://developer.yahoo.com/geo/placefinder/
-'''
-
-api_key2 = '57I4wiLV34EjVWNCYuOFTqGNMtPGfy0xgczCCNI8yS6J7RLauyMcH9X8sLLa_NzC'
+api_key = '57I4wiLV34EjVWNCYuOFTqGNMtPGfy0xgczCCNI8yS6J7RLauyMcH9X8sLLa_NzC'
 base = 'http://where.yahooapis.com/v1/places'
 
 results = {}
@@ -40,13 +34,13 @@ for loc in cities:
     print "\nSearching for: " + loc
 
     first = '.q(' + str(loc) + ')?&format=json&appid='
-    url = base + first + api_key2
+    url = base + first + api_key
     raw = urllib.urlopen(url)
     if not raw:
         print 'BAD INPUT'
         continue
-    result = json.load(raw)
 
+    result = json.load(raw)
     print result
 
     place = result['places']['place'][0]
